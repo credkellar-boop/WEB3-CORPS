@@ -1,0 +1,40 @@
+name: WEB3-Corps Rust CI Suite
+
+on:
+  push:
+    branches: [ "main", "development" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build_and_test:
+    name: Build & Validate Compilation
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Source Code
+      uses: actions/checkout@v4
+
+    - name: Cache Cargo Dependencies
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.cargo/registry
+          ~/.cargo/git
+          target
+        key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+
+    - name: Set Up Rust Stable Toolchain
+      uses: dtolnay/rust-toolchain@stable
+      with:
+        components: clippy, rustfmt
+
+    - name: Check Code Formatting
+      run: cargo fmt --all -- --check
+
+    - name: Execute Clippy Static Analysis Lints
+      run: cargo clippy --workspace -- -D warnings
+
+    - name: Execute Master Test Matrix
+      run: cargo test --workspace --verbose
+      
