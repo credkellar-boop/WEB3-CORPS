@@ -1,13 +1,34 @@
+[workspace]
+resolver = "2"
+members = [
+    ".",
+]
+
 [package]
 name = "web3-corps"
-version = "0.1.0"
+version = "1.0.0"
 edition = "2021"
+authors = ["Agent Genesis Bot <genesis@web3corps.internal>"]
+description = "Sovereign 77-Agent Multi-Tenant Decentralized Layer-3 Real Estate Scaling Mesh Engine"
 
 [dependencies]
+# Asynchronous Runtime Execution Core
 tokio = { version = "1.35", features = ["full"] }
-serde = { version = "1.0", features = ["derive"] }
-serde_json = "1.0"
-libp2p = { version = "0.52", features = ["tcp", "dns", "async-std", "noise", "yamux", "macros"] }
-alloy = { version = "0.1", features = ["providers", "signers"] } # Modern Web3/EVM interaction
-async-trait = "0.1"
-anyhow = "1.0"
+async-trait = "0.1.77"
+futures = "0.3.30"
+
+# High-Performance Cryptography & Serialization Utilities
+serde = { version = "1.0.195", features = ["derive"] }
+serde_json = "1.0.111"
+anyhow = "1.0.79"
+sha2 = "0.10.8"
+
+# Modular Peer-to-Peer Routing Mesh Protocols
+libp2p = { version = "0.52", features = ["tcp", "noise", "yamux", "gossipsub", "tokio"] }
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
