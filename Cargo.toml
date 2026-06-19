@@ -1,0 +1,13 @@
+[package]
+name = "web3-corps"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tokio = { version = "1.35", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+libp2p = { version = "0.52", features = ["tcp", "dns", "async-std", "noise", "yamux", "macros"] }
+alloy = { version = "0.1", features = ["providers", "signers"] } # Modern Web3/EVM interaction
+async-trait = "0.1"
+anyhow = "1.0"
