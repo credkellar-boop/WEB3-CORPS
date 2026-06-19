@@ -1,0 +1,14 @@
+{
+  "network": {
+    "l3_chain_id": 7733,
+    "parent_l2_rpc": "https://arb1.arbitrum.io/rpc",
+    "bridge_contract": "0x7777777777777777777777777777777777777777"
+  },
+  "security": {
+    "strict_rbac_enabled": true,
+    "circuit_breaker_threshold_eth": 50.0
+  },
+  "proptech": {
+    "supported_stablecoins": ["USDC", "USDT"]
+  }
+}
