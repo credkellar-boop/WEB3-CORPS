@@ -9,7 +9,7 @@ pub struct Message {
     pub payload: serde_json::Value,
 }
 
-@async_trait
+#[async_trait]
 pub trait AutonomousAgent: Send + Sync {
     fn name(&self) -> &str;
     fn role_permissions(&self) -> Vec<String>;
