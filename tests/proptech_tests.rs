@@ -1,5 +1,5 @@
-use web3_corps::proptech::residential::SustainablePropertyProfile;
 use web3_corps::proptech::leasing::CommercialLeaseManager;
+use web3_corps::proptech::residential::SustainablePropertyProfile;
 
 #[test]
 fn test_solar_sustainability_underwriting() {
@@ -20,5 +20,6 @@ fn test_automated_commercial_rental_split() {
     };
     let result = manager.process_monthly_rent(5000).unwrap();
     assert_eq!(result[0].0, "Treasury_Wallet");
-    assert_eq!(result[0].1, 4750); // Asserts 95% baseline yield split calculation passes
+    assert_eq!(result[0].1, 4750);
+    // Asserts 95% baseline yield split calculation passes
 }
