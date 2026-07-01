@@ -21,9 +21,8 @@ fn test_insurance_premium_risk_scaling() {
         active_underwritten_value: 500_000,
     };
     let premium = pool.calculate_property_premium(100_000, 0.5);
-    // 100k valuation, 0.5 hazard multiplier
 
-    assert_eq!(premium, 750); // Asserts mathematical risk indexing matches expected baseline profiles
+    assert_eq!(premium, 750);
     assert!(pool.execute_automated_claim_disbursement(50_000).is_ok());
     assert_eq!(pool.total_reserve_liquidity_usdc, 950_000);
 }
