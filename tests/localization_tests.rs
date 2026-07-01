@@ -15,7 +15,7 @@ fn test_technical_crypto_glossary_translation() {
 fn test_fallback_unsupported_iso_codes() {
     let translator = MultilingualTranslator;
     let fallback = translator.translate_term("liquidity_pool", "xyz");
-    
+
     assert_eq!(fallback, "liquidity_pool");
     // Ensures unmatched codes safely default to baseline text
 }
