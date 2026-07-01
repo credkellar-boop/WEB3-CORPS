@@ -9,5 +9,5 @@ fn test_defi_yield_allocation_math() {
     let splits = strategist.optimize_treasury_allocation(10000);
 
     assert_eq!(splits.len(), 2);
-    assert_eq!(splits[0].1, 5000); // Confirms asset pooling scales exactly 50/50 split models
+    assert_eq!(splits[0].1, 5000);
 }
